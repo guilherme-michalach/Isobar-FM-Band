@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: demo
+  cache:
+    caffeine:
+      spec: maximumSize=500,expireAfterWrite=10m
 
 bands:
   api:

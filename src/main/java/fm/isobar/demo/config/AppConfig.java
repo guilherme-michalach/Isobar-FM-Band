@@ -1,7 +1,10 @@
 package fm.isobar.demo.config;
 
+import com.github.benmanes.caffeine.cache.Caffeine;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.restclient.RestTemplateBuilder;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -23,6 +26,19 @@ public class AppConfig {
                 .connectTimeout(Duration.ofMillis(connectionTimeout))
                 .readTimeout(Duration.ofMillis(readTimeout))
                 .build();
+    }
+
+    @Bean
+    public CacheManager cacheManager() {
+        var manager = new CaffeineCacheManager();
+
+        manager.setCaffeine(
+                Caffeine.newBuilder()
+                        .maximumSize(500)
+                        .expireAfterWrite(Duration.ofMinutes(10))
+                        .recordStats()
+        );
+        return manager;
     }
 
 }

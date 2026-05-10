@@ -1,4 +1,4 @@
-package fm.isobar.demo.config;
+package fm.isobar.band.config;
 
 import com.github.benmanes.caffeine.cache.Caffeine;
 import org.springframework.beans.factory.annotation.Value;
@@ -38,6 +38,7 @@ public class AppConfig {
                         .expireAfterWrite(Duration.ofMinutes(10))
                         .recordStats()
         );
+
         return manager;
     }
 

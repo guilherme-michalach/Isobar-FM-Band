@@ -1,6 +1,6 @@
-package fm.isobar.demo.client;
+package fm.isobar.band.client;
 
-import fm.isobar.demo.model.Band;
+import fm.isobar.band.model.Band;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
@@ -16,12 +16,10 @@ import java.util.List;
 @Component
 public class BandsApiClient {
 
-    private final RestTemplate restTemplate;
-
-
     @Value("${bands.api.url}")
     private String bandsApiUrl;
 
+    private final RestTemplate restTemplate;
 
     public BandsApiClient(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;

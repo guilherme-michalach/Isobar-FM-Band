@@ -3,10 +3,16 @@ server:
 
 spring:
   application:
-    name: demo
+    name: band
   cache:
     caffeine:
       spec: maximumSize=500,expireAfterWrite=10m
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
 
 bands:
   api:

@@ -1,4 +1,4 @@
-package fm.isobar.demo.exception;
+package fm.isobar.band.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -33,4 +33,5 @@ public class GlobalExceptionHandler {
         body.put("message", message);
         return ResponseEntity.status(status).body(body);
     }
+
 }

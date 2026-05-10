@@ -1,9 +1,9 @@
-package fm.isobar.demo.service;
+package fm.isobar.band.service;
 
-import fm.isobar.demo.client.BandsApiClient;
-import fm.isobar.demo.exception.BandNotFoundException;
-import fm.isobar.demo.model.Band;
-import fm.isobar.demo.model.SortOrder;
+import fm.isobar.band.client.BandsApiClient;
+import fm.isobar.band.exception.BandNotFoundException;
+import fm.isobar.band.model.Band;
+import fm.isobar.band.model.SortOrder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;

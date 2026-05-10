@@ -1,4 +1,4 @@
-package fm.isobar.demo.exception;
+package fm.isobar.band.exception;
 
 public class BandNotFoundException extends RuntimeException {
     public BandNotFoundException(String id) {

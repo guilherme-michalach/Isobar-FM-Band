@@ -1,4 +1,4 @@
-package fm.isobar.demo.model;
+package fm.isobar.band.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

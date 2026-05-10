@@ -4,6 +4,9 @@ A Spring Boot REST API that proxies and serves band data from an external source
 
 #### Before running the app, open `src/main/resources/application.yaml` and set the external bands API URL and timeout values to match your environment.
 
+The app is deployed on this url: https://isobar-fm.onrender.com/api/bands
+It may take some time to start because it's running on a cold start free tier plan, in that case it may take some time to start running(according to Render around 1 minute).
+
 ---
 
 ## Tech stack

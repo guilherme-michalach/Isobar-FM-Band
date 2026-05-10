@@ -1,3 +1,21 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: demo
+
+bands:
+  api:
+    url: https://bands-api.vercel.app/api/bands
+    connection-timeout: 5000
+    read-timeout: 10000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,caches,metrics
+  endpoint:
+    health:
+      show-details: always

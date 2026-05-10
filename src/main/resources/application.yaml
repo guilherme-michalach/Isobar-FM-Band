@@ -16,7 +16,7 @@ springdoc:
 
 bands:
   api:
-    url: https://bands-api.vercel.app/api/bands
+    url: ${BAND_REMOTE_SERVICE_URL}
     connection-timeout: 5000
     read-timeout: 10000
 

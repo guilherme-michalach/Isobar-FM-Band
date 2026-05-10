@@ -2,6 +2,8 @@
 
 A Spring Boot REST API that proxies and serves band data from an external source, with in-memory caching, search, and sorting support.
 
+#### Before running the app, open `src/main/resources/application.yaml` and set the external bands API URL and timeout values to match your environment.
+
 ---
 
 ## Tech stack
@@ -28,7 +30,7 @@ A Spring Boot REST API that proxies and serves band data from an external source
 
 ## Configuration
 
-Before running the app, open `src/main/resources/application.yaml` and set the external bands API URL and timeout values to match your environment, right now it's set as https://bands-api.vercel.app/api/bands
+Before running the app, open `src/main/resources/application.yaml` and set the external bands API URL and timeout values to match your environment.
 
 ```yaml
 bands:

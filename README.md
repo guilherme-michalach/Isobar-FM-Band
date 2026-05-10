@@ -119,8 +119,6 @@ Health and operational endpoints are exposed at:
 | Metrics | `http://localhost:8080/actuator/metrics` |
 | Info | `http://localhost:8080/actuator/info` |
 
-The `/actuator/caches` endpoint is particularly useful for inspecting or evicting the `bands` cache without restarting the app.
-
 ---
 
 ## Postman collection

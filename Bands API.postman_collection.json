@@ -1,0 +1,307 @@
+{
+  "info": {
+    "_postman_id": "add14f99-d099-44b8-9d50-52356e845381",
+    "name": "Bands API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "18527951"
+  },
+  "item": [
+    {
+      "name": "Bands",
+      "item": [
+        {
+          "name": "Get all bands",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bands",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bands"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all bands - sorted alphabetically",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bands?sort=ALPHABETICAL",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bands"
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "ALPHABETICAL"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all bands - sorted by popularity",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bands?sort=POPULARITY",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bands"
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "POPULARITY"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search bands by name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bands?q=nick",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bands"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "nick"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search bands by name - sorted alphabetically",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bands?q=ee&sort=ALPHABETICAL",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bands"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "ee"
+                },
+                {
+                  "key": "sort",
+                  "value": "ALPHABETICAL"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search bands by name - sorted by popularity",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bands?q=ee&sort=POPULARITY",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bands"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "ee"
+                },
+                {
+                  "key": "sort",
+                  "value": "POPULARITY"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search bands - no results",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bands?q=zzznomatch",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bands"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "zzznomatch"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get band by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bands/c648509e-9916-4c56-ab63-652a03da16dd",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bands",
+                "c648509e-9916-4c56-ab63-652a03da16dd"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get band by id - not found",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/bands/999",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "bands",
+                "999"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Actuator",
+      "item": [
+        {
+          "name": "Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/actuator/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "actuator",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Caches",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/actuator/caches",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "actuator",
+                "caches"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Metrics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/actuator/metrics",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "actuator",
+                "metrics"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/actuator/info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "actuator",
+                "info"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}

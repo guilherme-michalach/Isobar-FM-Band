@@ -1,6 +1,7 @@
 package fm.isobar.demo.service;
 
 import fm.isobar.demo.client.BandsApiClient;
+import fm.isobar.demo.exception.BandNotFoundException;
 import fm.isobar.demo.model.Band;
 import fm.isobar.demo.model.SortOrder;
 import lombok.extern.slf4j.Slf4j;
@@ -40,5 +41,12 @@ public class BandService {
                 .sorted(comparator)
                 .collect(Collectors.toList());
     };
+
+    public Band getBandById(String id) {
+        return getAllBands().stream()
+                .filter(b -> b.id().equalsIgnoreCase(id))
+                .findFirst()
+                .orElseThrow(() -> new BandNotFoundException(id));
+    }
 
 }

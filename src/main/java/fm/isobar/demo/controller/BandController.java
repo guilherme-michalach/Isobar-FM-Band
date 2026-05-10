@@ -5,10 +5,7 @@ import fm.isobar.demo.model.Band;
 import fm.isobar.demo.model.SortOrder;
 import fm.isobar.demo.service.BandService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.swing.*;
 import java.util.List;
@@ -41,6 +38,9 @@ public class BandController {
         return ResponseEntity.ok(ApiResponse.ok(bands));
     }
 
-
+    @GetMapping("/{id}")
+    public ResponseEntity<ApiResponse<Band>> getBandById(@PathVariable String id) {
+        return ResponseEntity.ok(ApiResponse.ok(bandService.getBandById(id)));
+    }
 
 }

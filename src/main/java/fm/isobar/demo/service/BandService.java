@@ -8,10 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import javax.swing.*;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -30,23 +28,35 @@ public class BandService {
         return bandsApiClient.fetchAllBands();
     }
 
-    public List<Band> getSortedBands(SortOrder sort) {
-        Comparator<Band> comparator = switch (sort) {
-            case POPULARITY -> Comparator.comparing(Band::numPlays).reversed();
-            case ALPHABETICAL -> Comparator.comparing(Band::name, String.CASE_INSENSITIVE_ORDER);
-        };
+    public List<Band> getBands(String q, SortOrder sort) {
+        var bands = getAllBands().stream()
+                .filter(b -> q == null || q.isBlank() || (matchesName(b, q.toLowerCase())))
+                .toList();
 
-        return getAllBands()
-                .stream()
-                .sorted(comparator)
-                .collect(Collectors.toList());
-    };
+        return applySorting(bands, sort);
+    }
 
     public Band getBandById(String id) {
         return getAllBands().stream()
                 .filter(b -> b.id().equalsIgnoreCase(id))
                 .findFirst()
                 .orElseThrow(() -> new BandNotFoundException(id));
+    }
+
+    public List<Band> applySorting(List<Band> bands, SortOrder sort) {
+        if (sort == null) return bands;
+        return bands.stream().sorted(comparatorFor(sort)).toList();
+    }
+
+    private Comparator<Band> comparatorFor(SortOrder sort) {
+        return switch (sort) {
+            case ALPHABETICAL -> Comparator.comparing(Band::name, String.CASE_INSENSITIVE_ORDER);
+            case POPULARITY   -> Comparator.comparingLong(Band::numPlays).reversed();
+        };
+    }
+
+    private boolean matchesName(Band band, String lowerQuery) {
+        return band.name() != null && band.name().toLowerCase().contains(lowerQuery);
     }
 
 }

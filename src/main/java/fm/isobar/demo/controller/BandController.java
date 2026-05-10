@@ -7,7 +7,6 @@ import fm.isobar.demo.service.BandService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.*;
 import java.util.List;
 
 @RestController
@@ -22,18 +21,12 @@ public class BandController {
 
     @GetMapping
     public ResponseEntity<ApiResponse<List<Band>>> getBands(
-            @RequestParam(required = false) String genre,
+            @RequestParam(required = false) String q,
             @RequestParam(required = false) SortOrder sort) {
-        List<Band> bands = (sort != null)
-                ? bandService.getSortedBands(sort)
-                : bandService.getAllBands();
 
-        if (genre != null && !genre.isBlank()) {
-            String lowerGenre = genre.toLowerCase();
-            bands = bands.stream()
-                    .filter(b -> b.genre() != null && b.genre().toLowerCase().contains(lowerGenre))
-                    .toList();
-        }
+        List<Band> bands = (q != null && !q.isBlank())
+                ? bandService.getBands(q, sort)
+                : bandService.getAllBands();
 
         return ResponseEntity.ok(ApiResponse.ok(bands));
     }

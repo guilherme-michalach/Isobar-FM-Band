@@ -46,7 +46,7 @@ public class BandsApiClient {
 
             log.info("Received a total of {} bands from the api", bands != null ? bands.size() : 0);
 
-            return bands;
+            return bands != null ? bands : List.of();
         } catch (RestClientException e) {
             throw new RestClientException("Failed to fetch bands from " + bandsApiUrl, e);
         }
